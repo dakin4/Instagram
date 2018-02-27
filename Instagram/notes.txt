@@ -1,0 +1,1 @@
+To add tabs to tab bar controller must control click to view that you want to segue to, this will create another tab.

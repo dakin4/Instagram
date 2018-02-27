@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //initialize parse
+        Parse.initialize(
+            with: ParseClientConfiguration(block: { (configuration: ParseMutableClientConfiguration) -> Void in
+                configuration.applicationId = "Instagram"
+                configuration.clientKey = "12qwaszx"  // set to nil assuming you have not set clientKey
+                configuration.server = "https://instagramg.herokuapp.com/parse"
+            })
+            
+            
+            )
+        
+        // whos logged in, stays logged in since this is here thank you coder sir
+        if PFUser.current() != nil {
+            if let user = PFUser.current()?.username{
+                 print(user + "bang")
+                
+               let storyboard = UIStoryboard(name: "Main", bundle: nil)
+               // why does this go to home view
+                window?.rootViewController = storyboard.instantiateViewController(withIdentifier: "TabBar")as! UITabBarController
+                print((storyboard.instantiateInitialViewController()?.nibName)! + " gag")
+            }
+        
+        }
+       
         return true
     }
 
