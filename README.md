@@ -1,8 +1,8 @@
 # Project 4 - *Name of App Here*
 
-**Name of your app** is a photo sharing app using Parse as its backend.
+**Instagram** is a photo sharing app using Parse as its backend.
 
-Time spent: **X** hours spent in total
+Time spent: **5** hours spent in total
 
 ## User Stories
 
@@ -41,14 +41,17 @@ The following **additional** features are implemented:
 
 Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-1.
-2.
+1.How to create a PFObject to save things in parse
+2.how to get data from Parse
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/ykzdp9y.gif' title='Video Walkthrough pt 1' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/ktW9qkv.gif' title ='Video Walkthrough pt 2' width='' alt='Video Walkthrough' />
+<img src='https://i.imgur.com/4epGFRB.gif' title='Video Walkthrough pt 3' width='' alt='Video Walkthrough' />
+
 
 GIF created with [LiceCap](http://www.cockos.com/licecap/).
 
