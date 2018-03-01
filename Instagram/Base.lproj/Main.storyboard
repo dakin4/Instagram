@@ -73,21 +73,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bomb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ehg-Oj-vbH">
-                                <frame key="frameInset" minX="166" minY="209" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="220" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FNR-Ek-dlV">
+                                <frame key="frameInset" minY="6" width="375" height="612"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="IGCell" rowHeight="220" id="gkH-hc-fnt" customClass="IGTableViewCell" customModule="Instagram" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="375" height="220"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gkH-hc-fnt" id="cct-FR-kXv">
+                                            <frame key="frameInset" width="375" height="219"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hyO-fG-nTB">
+                                                    <frame key="frameInset" minX="8" minY="168" width="359" height="33"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BnG-DA-toJ">
+                                                    <frame key="frameInset" minX="82" minY="13" width="210" height="147"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="CaptionLabel" destination="hyO-fG-nTB" id="sdF-f3-5f4"/>
+                                            <outlet property="PostImage" destination="BnG-DA-toJ" id="aNe-Le-dPt"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Ehc-1D-e5h" firstAttribute="top" secondItem="FNR-Ek-dlV" secondAttribute="bottom" id="9aj-im-gUZ"/>
+                            <constraint firstAttribute="trailing" secondItem="FNR-Ek-dlV" secondAttribute="trailing" id="XTJ-Fg-AtC"/>
+                            <constraint firstItem="FNR-Ek-dlV" firstAttribute="top" secondItem="ABp-oU-6pI" secondAttribute="bottom" id="f7n-jr-p96"/>
+                            <constraint firstItem="FNR-Ek-dlV" firstAttribute="leading" secondItem="UO8-io-jiK" secondAttribute="leading" id="jjm-Gx-e2b"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="TXe-v0-AgG"/>
+                    <connections>
+                        <outlet property="tableView" destination="FNR-Ek-dlV" id="c7W-6D-9Mp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5n5-gu-eIf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-476" y="134"/>
+            <point key="canvasLocation" x="-447.19999999999999" y="133.5832083958021"/>
         </scene>
         <!--Profile View Controller-->
         <scene sceneID="DNu-y8-4Vn">
@@ -119,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="66E-KH-qJP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4076" y="134.48275862068968"/>
+            <point key="canvasLocation" x="3974" y="134"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="xFh-Bk-8Kd">
@@ -238,6 +271,7 @@
                     <connections>
                         <outlet property="PostCaption" destination="ZdQ-FN-d6p" id="oyF-hk-WRL"/>
                         <outlet property="PostImage" destination="c0k-0B-0sv" id="Te5-R5-42g"/>
+                        <segue destination="s4s-bK-8q6" kind="show" identifier="BackHome" id="7Ys-fn-jdg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rSZ-QQ-bIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -261,7 +295,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r0d-Z4-unp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3152.8000000000002" y="135.38230884557723"/>
+            <point key="canvasLocation" x="3124" y="134"/>
         </scene>
         <!--Capture-->
         <scene sceneID="CBj-vp-wuz">
@@ -283,4 +317,7 @@
             <point key="canvasLocation" x="551" y="135"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="7Ys-fn-jdg"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -45,8 +45,15 @@ class PostViewController: UIViewController{
     }
 
  @IBAction func PostClicked(_ sender: AnyObject) {
+    //I thought I had to create a class object to call a class method
+    ParsePost.post(image: image, withCaption: PostCaption.text!) {( status: Bool, error: Error? ) in
+        self.PostCaption.text = nil
+        self.PostImage.image = nil
+        
+        self.performSegue(withIdentifier: "BackHome", sender: nil)
+        
+    }
     
-    let pars: ParsePost = ParsePost()
     print("posting parse")
     
    // Not sure how to run my post method in pars as of now I am not able to

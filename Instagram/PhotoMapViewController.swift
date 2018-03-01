@@ -13,11 +13,11 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
     
     var ph: UIImage?
     var photo:UIImageView?
-   
+    
     let vcI = UIImagePickerController()
     
     //click what then try to open
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -25,19 +25,25 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
- @IBAction func photoButton(_ sender: AnyObject) {
-    
-    vcI.delegate = self
-    vcI.allowsEditing = true
-    vcI.sourceType = UIImagePickerControllerSourceType.photoLibrary
-            self.present(vcI, animated: true, completion: nil)
-
+    @IBAction func photoButton(_ sender: AnyObject) {
+        
+        vcI.delegate = self
+        vcI.allowsEditing = true
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            print("Camera is available 📸")
+            vcI.sourceType = .camera
+        } else {
+            print("Camera 🚫 available so we will use photo library instead")
+            vcI.sourceType = .photoLibrary
+        }
+        self.present(vcI, animated: true, completion: nil)
+        
     }
     
     
@@ -45,14 +51,14 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         let originalImage = info[UIImagePickerControllerOriginalImage] as!UIImage
         let editedImage = info[UIImagePickerControllerEditedImage] as! UIImage
         
-            ph = editedImage
-        //photo?.image = ph
+        ph = editedImage
+      
         
         performSegue(withIdentifier: "poster", sender: self)
         
         dismiss(animated: true, completion: nil)
-
-    print("image choosen")
+        
+        print("image choosen")
         
         
         
@@ -63,27 +69,27 @@ class PhotoMapViewController: UIViewController, UIImagePickerControllerDelegate,
         
         if let ph = ph
         {
-           var g: String = "gad"
+            var g: String = "gad"
             post.image = ph
-           
+            
             print ("posted")
-
             
             
-                   }
+            
+        }
         
     }
     
     
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
